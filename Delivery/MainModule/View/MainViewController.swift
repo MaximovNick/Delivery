@@ -12,9 +12,9 @@ final class MainViewController: UIViewController {
     var presenter: MainViewPresenterProtocol!
     
     // MARK: - Private properties
-    private var collectionView: UICollectionView! = nil
+    private var collectionView: UICollectionView!
     
-    // MARK: - LifeCycle methods
+    // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
@@ -27,11 +27,15 @@ extension MainViewController {
     private func setupNavBar() {
         title = "Delivery"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(cartButtonTapp))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "cart"),
+            style: .plain,
+            target: self,
+            action: #selector(cartButtonTapp)
+        )
     }
     
-    @objc func cartButtonTapp() {
+    @objc private func cartButtonTapp() {
         print("Button Tapp")
     }
 }
